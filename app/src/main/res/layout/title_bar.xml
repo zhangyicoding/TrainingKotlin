@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/welcome_top_bg"
+    android:id="@+id/titleView"
     android:layout_height="?attr/actionBarSize">
 
     <android.support.v7.widget.AppCompatImageView

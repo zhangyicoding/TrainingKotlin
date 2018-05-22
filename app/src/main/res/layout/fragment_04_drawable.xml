@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include android:id="@+id/titlebar"/>
+        <include android:id="@+id/titlebar"
+            layout="@layout/title_bar"/>
 
         <FrameLayout
             android:id="@+id/content_container"
@@ -17,6 +18,10 @@
 
     </LinearLayout>
 
-
-
+    <fragment
+        android:id="@+id/drawer_fragment"
+        android:name="com.estyle.trainingkotlin.fragments.CodeDrawerFragment"
+        android:layout_gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </android.support.v4.widget.DrawerLayout>

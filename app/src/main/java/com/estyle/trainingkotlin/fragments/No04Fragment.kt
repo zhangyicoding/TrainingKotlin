@@ -6,20 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.estyle.trainingkotlin.R
 
-/**
- * Created by zhangyi on 2018/5/22.
- */
-class No01Fragment:BaseFragment() {
-
+class No04Fragment:BaseFragment() {
     override var mPage: Int
-        get() = 1
+        get() = 4
         set(value) {}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_01, container, false)
+        return inflater.inflate(R.layout.fragment_04_drawable, container, false)
     }
 
     override fun onTitleClick() {
-
     }
 }
