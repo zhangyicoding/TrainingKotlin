@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include android:id="@+id/titlebar"
+        layout="@layout/title_bar"/>
+
+    <LinearLayout
+        android:id="@+id/right_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/yellow_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlebar">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/rightOne01TV"
+            style="@style/one_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="为啥要用Kotlin替换Java？\nJava说它不服，接下来我们让它死得明白" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/rightTwo01TV"
+            style="@style/two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1、Java语法死板，Kotlin许多场景下接近人类的自然语言。书写比你优雅！" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/rightTwo02TV"
+            style="@style/two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2、没有知识产权纠纷，完全开源免费授权。Java你小子给Google爸爸和Oracle添的麻烦还嫌少吗！" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/rightTwo03TV"
+            style="@style/two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3、Kotlin在2018年Google的I/O大会获得了KTX框架的支持，它可牛了，狐狸Family的4个宝贝都即将使用kotlin从而少写太多低效率代码，Java你赶紧让地方" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

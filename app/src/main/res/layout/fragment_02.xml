@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:id="@+id/left_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/red_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlebar">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/leftOne1TV"
+            style="@style/one_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="什么是Kotlin语言" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/leftTwo1TV"
+            style="@style/two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kotlin是JetBrains公司推出的开源语言，2017年在Google的I/O大会上成为Android的官方语言，它能够实现完全替换Java和JavaScript" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/leftTwo2TV"
+            style="@style/two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，而Java则退位成为其次考虑的兼容语言" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            app:srcCompat="@mipmap/hehe"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

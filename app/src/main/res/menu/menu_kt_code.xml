@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/daoru_kt"
+        android:title="环境搭建"/>
+
+    <item android:id="@+id/bianliang_item"
+        android:title="变量、常量、数据类型"/>
+
+    <item android:id="@+id/fun_item"
+    android:title="函数"/>
+
+    <item android:id="@+id/if_item"
+        android:title="if语句"/>
+
+    <item android:id="@+id/when_item"
+        android:title="when语句"/>
+
+    <item android:id="@+id/for_item"
+        android:title="for语句"/>
+
+    <item android:id="@+id/list_item"
+        android:title="List集合"/>
+
+    <item android:id="@+id/bansheng_item"
+        android:title="伴生对象"/>
+
+    <item android:id="@+id/lambda_item"
+        android:title="lambda表达式"/>
+
+</menu>
