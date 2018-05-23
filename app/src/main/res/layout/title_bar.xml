@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/welcome_top_bg"
     android:id="@+id/titleView"
-    android:layout_height="?attr/actionBarSize">
+    android:layout_height="56dp">
 
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="wrap_content"
