@@ -1,5 +1,6 @@
 package com.estyle.trainingkotlin.fragments
 
+import android.animation.Animator
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
@@ -8,7 +9,19 @@ import kotlinx.android.synthetic.main.fragment_01.*
 /**
  * Created by zhangyi on 2018/5/22.
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(), Animator.AnimatorListener {
+    override fun onAnimationRepeat(animation: Animator?) {
+    }
+
+    override fun onAnimationEnd(animation: Animator?) {
+        onAnimEnd(animation!!)
+    }
+
+    override fun onAnimationCancel(animation: Animator?) {
+    }
+
+    override fun onAnimationStart(animation: Animator?) {
+    }
 
     companion object {
 
@@ -22,5 +35,7 @@ abstract class BaseFragment : Fragment() {
         titlebar.setOnClickListener { onTitleClick() }
     }
 
-    protected abstract fun onTitleClick();
+    protected abstract fun onTitleClick()
+    protected abstract fun onAnimEnd(animation: Animator)
+
 }

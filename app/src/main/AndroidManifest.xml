@@ -24,6 +24,7 @@
         <activity
             android:name=".activities.CodeDetailActivity"
             android:screenOrientation="landscape" />
+        <activity android:name=".activities.EndActivity"></activity>
     </application>
 
 </manifest>

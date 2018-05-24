@@ -1,5 +1,6 @@
 package com.estyle.trainingkotlin.fragments
 
+import android.animation.Animator
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -11,9 +12,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.activities.CodeDetailActivity
+import com.estyle.trainingkotlin.activities.EndActivity
 import kotlinx.android.synthetic.main.fragment_04.*
 
 class No04Fragment : BaseFragment() {
+    override fun onAnimEnd(animation: Animator) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override var mPage: Int
         get() = 4
         set(value) {}
@@ -26,6 +32,8 @@ class No04Fragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.BLACK)
+
+        toEndBtn.setOnClickListener { startActivity(Intent(context, EndActivity::class.java)) }
 
         recyclerView.adapter = CodeAdapter(listOf(
                 "环境搭建",
@@ -49,9 +57,11 @@ class No04Fragment : BaseFragment() {
                     .inflate(R.layout.item_code, parent, false)
             itemView.setOnClickListener {
                 parent.context.startActivity(Intent(parent.context, CodeDetailActivity::class.java).apply {
-                        putExtra("title",
-                                datas?.get((parent as RecyclerView).getChildLayoutPosition(itemView)) ?: "")
-                    }) }
+                    putExtra("title",
+                            datas?.get((parent as RecyclerView).getChildLayoutPosition(itemView))
+                                    ?: "")
+                })
+            }
             return CodeViewHolder(itemView)
         }
 

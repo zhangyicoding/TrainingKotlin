@@ -45,4 +45,6 @@ dependencies {
     //    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
     kapt "android.arch.lifecycle:compiler:$lifecycle_version"
     implementation project(path: ':vptransformer')
+
+    implementation 'com.airbnb.android:lottie:2.5.5'
 }

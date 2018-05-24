@@ -4,13 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ddd"
     tools:context="com.estyle.trainingkotlin.activities.WelcomeActivity">
 
-    <include layout="@layout/title_bar"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/welcome_top_bg">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/titleView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/android_developer" />
+    </FrameLayout>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:contentPadding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,25 +36,29 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/logo_iv"
+                android:id="@+id/mLogoImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:src="@mipmap/kotlin_logo" />
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/title_tv"
+                style="@style/one_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="手在键盘敲很轻"
-                style="@style/one_title"/>
+                android:alpha="0"
+                android:text="手在键盘敲很轻" />
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/subtitle_tv"
+                style="@style/two_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                style="@style/two_title"
                 android:layout_marginTop="16dp"
+                android:alpha="0"
                 android:text="——Kotlin语言让代码更优雅" />
 
         </LinearLayout>
@@ -52,6 +69,7 @@
         android:id="@+id/fab"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:alpha="0"
         android:src="@drawable/ic_arrow_forward_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
