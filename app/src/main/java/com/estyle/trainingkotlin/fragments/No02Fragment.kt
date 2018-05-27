@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.utils.AnimatorUtils
-import kotlinx.android.synthetic.main.fragment_01.*
 import kotlinx.android.synthetic.main.fragment_02.*
 
 class No02Fragment:BaseFragment() {

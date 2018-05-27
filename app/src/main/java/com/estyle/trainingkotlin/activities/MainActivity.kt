@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onPostCreate(savedInstanceState)
 
         viewPager.adapter = MainPagerAdapter(supportFragmentManager)
-        viewPager.setPageTransformer(true, TabletTransformer())
+        viewPager.setPageTransformer(true, ZoomInTransformer())
     }
 
     private fun getFragmentList(): List<Fragment> {

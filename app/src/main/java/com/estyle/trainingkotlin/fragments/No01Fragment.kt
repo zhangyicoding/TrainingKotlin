@@ -44,7 +44,7 @@ class No01Fragment : BaseFragment() {
             }
         }
 
-        two3TV.setOnClickListener {
+        one1TV.setOnClickListener {
             AnimatorUtils.createTranslationBottom2Top(two04TV, activity).apply {
                 duration = 1000
                 two04TV.visibility = View.VISIBLE
@@ -56,9 +56,15 @@ class No01Fragment : BaseFragment() {
 
     override fun onAnimEnd(animation: Animator) {
         when ((animation as ObjectAnimator).target) {
-            one1TV -> { two1TV.visibility = View.VISIBLE}
-            two1TV -> { two2TV.visibility = View.VISIBLE}
-            two2TV -> { two3TV.visibility = View.VISIBLE}
+            one1TV -> {
+                two1TV.visibility = View.VISIBLE
+            }
+            two1TV -> {
+                two2TV.visibility = View.VISIBLE
+            }
+            two2TV -> {
+                two3TV.visibility = View.VISIBLE
+            }
         }
     }
 

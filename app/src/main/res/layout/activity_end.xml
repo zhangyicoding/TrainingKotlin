@@ -4,29 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/all_bg"
     tools:context=".activities.EndActivity">
+
+    <include layout="@layout/title_bar"/>
 
     <FrameLayout
         android:id="@+id/endFoxView"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/consult">
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:layout_height="wrap_content" />
+            app:lottie_fileName="lottie/consult_animation.json"
+            app:lottie_imageAssetsFolder="lottie/"
+            app:lottie_loop="true" />
 
     </FrameLayout>
 
     <android.support.v7.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_below="@id/endFoxView"
-        android:layout_marginTop="32dp"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/title_tv"
         style="@style/one_title"
-        android:text="感谢大家对本课堂的关注！\n欢迎关注我的Github：\nhttps://github.com/zhangyicoding"
-        android:layout_height="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/endFoxView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="感谢大家对本课堂的关注！" />
+
+    <android.support.v7.widget.AppCompatTextView
+        style="@style/two_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/title_tv"
+        android:layout_below="@id/title_tv"
+        android:text="欢迎关注我的Github：\nhttps://github.com/zhangyicoding" />
 
 </RelativeLayout>

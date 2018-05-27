@@ -42,9 +42,10 @@ class No04Fragment : BaseFragment() {
                 "if语句",
                 "when语句",
                 "for语句",
-                "List集合",
+                "空安全",
                 "伴生对象",
-                "lambda表达式"
+                "lambda表达式",
+                ""
         ))
     }
 
@@ -55,13 +56,7 @@ class No04Fragment : BaseFragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CodeViewHolder {
             val itemView = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_code, parent, false)
-            itemView.setOnClickListener {
-                parent.context.startActivity(Intent(parent.context, CodeDetailActivity::class.java).apply {
-                    putExtra("title",
-                            datas?.get((parent as RecyclerView).getChildLayoutPosition(itemView))
-                                    ?: "")
-                })
-            }
+
             return CodeViewHolder(itemView)
         }
 
@@ -71,16 +66,88 @@ class No04Fragment : BaseFragment() {
 
         override fun onBindViewHolder(holder: CodeViewHolder, position: Int) {
             val title = datas?.get(position) ?: ""
-            holder.bind(title)
+            val itemView = holder.bind(title)
 
+
+
+            itemView.setOnClickListener {
+                itemView.context.startActivity(Intent(itemView.context, CodeDetailActivity::class.java).apply {
+                    putExtra("title", datas?.get(position))
+                    putExtra("code_pics", getCodePicResIds(position))
+
+                })
+            }
+
+        }
+
+        fun getCodePicResIds(position: Int): IntArray? {
+            when (position) {
+                0 -> {
+                    return intArrayOf(
+                            R.mipmap.k01_project_gradle,
+                            R.mipmap.k02_module_gradle
+                    )
+                }
+                1 -> {
+                    return intArrayOf(
+                            R.mipmap.k03_var_val
+                    )
+                }
+                2 -> {
+                    return intArrayOf(
+                            R.mipmap.k04_function
+                    )
+                }
+                3 -> {
+                    return intArrayOf(
+                            R.mipmap.k05_if_else,
+                            R.mipmap.k05_and_or_not
+                    )
+                }
+                4 -> {
+                    return intArrayOf(
+                            R.mipmap.k07_when
+                    )
+                }
+                5 -> {
+                    return intArrayOf(
+                            R.mipmap.k06_for1,
+                            R.mipmap.k06_for2,
+                            R.mipmap.k06_for3,
+                            R.mipmap.k06_for4,
+                            R.mipmap.k06_for5,
+                            R.mipmap.k06_for6
+                    )
+                }
+                6 -> {
+                    return intArrayOf(
+                            R.mipmap.k08_null1,
+                            R.mipmap.k08_null02
+                    )
+                }
+                7 -> {
+                    return intArrayOf(
+                            R.mipmap.k09_object1,
+                            R.mipmap.k09_object2
+                    )
+                }
+                8, 9 -> {
+                    return intArrayOf(
+                            R.mipmap.kt10_lambda
+                    )
+                }
+            }
+            return null
         }
 
         class CodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             val titleTextView by lazy { itemView.findViewById<TextView>(R.id.titleTextView) }
 
-            fun bind(title: String) {
+            fun bind(title: String): View {
                 titleTextView.text = title
+
+                return itemView
             }
         }
 

@@ -9,6 +9,12 @@
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="right"
         app:srcCompat="@mipmap/android_developer" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        app:srcCompat="@mipmap/huli_logo"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

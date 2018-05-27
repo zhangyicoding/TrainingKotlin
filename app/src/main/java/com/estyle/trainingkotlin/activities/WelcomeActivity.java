@@ -14,6 +14,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.estyle.trainingkotlin.R;
@@ -26,6 +27,7 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener {
     protected CardView mCardView;
     protected AppCompatTextView mTitleTv;
     protected AppCompatTextView mSubtitleTv;
+    protected FrameLayout mTitlebar;
     private ImageView mTitleView;
 
     @Override
@@ -37,18 +39,19 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener {
 
     private void initView() {
         mTitleView = (ImageView) findViewById(R.id.titleView);
-        mTitleView.setOnClickListener(WelcomeActivity.this);
         mFab = (FloatingActionButton) findViewById(R.id.fab);
         mFab.setOnClickListener(WelcomeActivity.this);
         mMLogoImageView = (AppCompatImageView) findViewById(R.id.mLogoImageView);
         mCardView = (CardView) findViewById(R.id.card_view);
         mTitleTv = (AppCompatTextView) findViewById(R.id.title_tv);
         mSubtitleTv = (AppCompatTextView) findViewById(R.id.subtitle_tv);
+        mTitlebar = (FrameLayout) findViewById(R.id.titlebar);
+        mTitlebar.setOnClickListener(WelcomeActivity.this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.titleView) {
+        if (view.getId() == R.id.titlebar) {
             showLogoAnimation();
         } else if (view.getId() == R.id.fab) {
             startActivity(new Intent(this, MainActivity.class));

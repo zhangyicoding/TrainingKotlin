@@ -2,6 +2,7 @@ package com.estyle.trainingkotlin.utils;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,5 +39,4 @@ public class AnimatorUtils {
         int height = displayMetrics.heightPixels;
         return new int[]{width, height};
     }
-
 }
