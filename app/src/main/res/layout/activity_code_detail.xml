@@ -17,7 +17,7 @@
             android:layout_height="56dp"
             android:background="@drawable/welcome_top_bg"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:navigationIcon="@mipmap/android_developer" />
+            app:navigationIcon="@mipmap/huli_logo" />
 
     </android.support.design.widget.AppBarLayout>
 

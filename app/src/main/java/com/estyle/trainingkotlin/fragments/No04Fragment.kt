@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.estyle.trainingkotlin.activities.EndActivity
 import kotlinx.android.synthetic.main.fragment_04.*
 
 class No04Fragment : BaseFragment() {
+
     override fun onAnimEnd(animation: Animator) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -35,6 +37,7 @@ class No04Fragment : BaseFragment() {
 
         toEndBtn.setOnClickListener { startActivity(Intent(context, EndActivity::class.java)) }
 
+        recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         recyclerView.adapter = CodeAdapter(listOf(
                 "环境搭建",
                 "变量、常量、数据类型",
