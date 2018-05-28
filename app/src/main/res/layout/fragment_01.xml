@@ -2,7 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <include
         android:id="@+id/titlebar"
@@ -12,23 +14,23 @@
         android:id="@+id/one1TV"
         style="@style/one_title"
         android:layout_width="wrap_content"
-        android:visibility="invisible"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="如果你恰好符合以下条件，欢迎拥抱Kotlin"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titlebar" />
+        app:layout_constraintTop_toBottomOf="@id/titlebar"
+        app:layout_constraintVertical_bias="0.3" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/two1TV"
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:visibility="invisible"
-        android:layout_marginTop="16dp"
         android:text="一、公司项目中已开始使用Kotlin语言"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/two2TV"
         app:layout_constraintTop_toBottomOf="@id/one1TV" />
 
     <android.support.v7.widget.AppCompatTextView
@@ -36,21 +38,23 @@
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="二、恰好你不会/不熟，正悲痛万分中"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/two3TV"
         app:layout_constraintTop_toBottomOf="@id/two1TV" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/two3TV"
         style="@style/two_title"
         android:layout_width="wrap_content"
-        android:visibility="invisible"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="三、渴望提升工作效率，少加班多陪女朋友"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintTop_toBottomOf="@id/two2TV" />
 
     <android.support.v7.widget.AppCompatTextView
@@ -58,11 +62,21 @@
         style="@style/one_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_marginBottom="32dp"
         android:text="学了本堂课，让你出门就会敲Kotlin代码！"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/two3TV"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/bottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/huli_bottom" />
 
 </android.support.constraint.ConstraintLayout>

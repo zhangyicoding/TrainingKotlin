@@ -2,33 +2,40 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:layout_height="match_parent">
 
     <include
         android:id="@+id/titlebar"
         layout="@layout/title_bar" />
 
-    <LinearLayout
-        android:id="@+id/right_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titlebar">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/right_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:orientation="vertical"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/titlebar">-->
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/rightOne01TV"
             style="@style/one_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="为啥要用Kotlin替换Java？\nJava说它不服，接下来我们让它死得明白"
-            android:visibility="invisible" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titlebar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/rightTwo01TV"
             style="@style/two_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rightOne01TV"
+            app:layout_constraintBottom_toTopOf="@+id/rightTwo02TV"
             android:text="1、Java语法死板，Kotlin许多场景下接近人类的自然语言。书写比你优雅！"
             android:visibility="invisible" />
 
@@ -37,6 +44,8 @@
             style="@style/two_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rightTwo01TV"
+            app:layout_constraintBottom_toTopOf="@+id/rightTwo03TV"
             android:text="2、没有知识产权纠纷，完全开源免费授权。Java你小子给Google爸爸和Oracle添的麻烦还嫌少吗！"
             android:visibility="invisible" />
 
@@ -44,10 +53,21 @@
             android:id="@+id/rightTwo03TV"
             style="@style/two_title"
             android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rightTwo02TV"
+            app:layout_constraintBottom_toTopOf="@+id/bottom"
             android:layout_height="wrap_content"
             android:text="3、Kotlin在2018年Google的I/O大会获得了KTX框架的支持，它可牛了，狐狸Family的4个宝贝都即将使用kotlin从而少写太多低效率代码，Java你赶紧让地方"
             android:visibility="invisible" />
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/huli_bottom" />
 </android.support.constraint.ConstraintLayout>

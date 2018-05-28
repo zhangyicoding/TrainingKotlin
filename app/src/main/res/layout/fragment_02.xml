@@ -2,54 +2,66 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <include
         android:id="@+id/titlebar"
         layout="@layout/title_bar" />
 
-    <LinearLayout
-        android:id="@+id/left_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/leftOne1TV"
+        style="@style/one_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="什么是Kotlin语言"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titlebar">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlebar"
+        app:layout_constraintVertical_bias="0.3" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/leftOne1TV"
-            style="@style/one_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="什么是Kotlin语言"
-            android:visibility="invisible" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/leftTwo1TV"
+        style="@style/two_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kotlin是JetBrains公司推出的开源语言，2017年在Google的I/O大会上成为Android的官方语言，它能够实现完全替换Java和JavaScript"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/leftOne1TV"
+        app:layout_constraintVertical_bias="0.1" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/leftTwo1TV"
-            style="@style/two_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kotlin是JetBrains公司推出的开源语言，2017年在Google的I/O大会上成为Android的官方语言，它能够实现完全替换Java和JavaScript"
-            android:visibility="invisible" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/leftTwo2TV"
+        style="@style/two_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，而Java则退位成为其次考虑的兼容语言"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/leftTwo1TV" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/leftTwo2TV"
-            style="@style/two_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，而Java则退位成为其次考虑的兼容语言"
-            android:visibility="invisible" />
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/mNaniImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/leftTwo2TV"
+        app:srcCompat="@mipmap/hehe" />
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/mNaniImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="32dp"
-            android:alpha="0"
-            app:srcCompat="@mipmap/hehe" />
-
-    </LinearLayout>
-
-
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/bottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/huli_bottom" />
 </android.support.constraint.ConstraintLayout>

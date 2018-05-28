@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/all_bg"
     tools:context=".activities.EndActivity">
 
-    <include layout="@layout/title_bar"/>
+    <include layout="@layout/title_bar" />
 
     <FrameLayout
         android:id="@+id/endFoxView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@mipmap/consult">
+        android:background="@mipmap/consult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="wrap_content"
@@ -31,17 +34,51 @@
         style="@style/one_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/endFoxView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="感谢大家对本课堂的关注！" />
+        android:text="感谢大家对本课堂的关注！"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/endFoxView"
+        app:layout_constraintVertical_bias="0.1" />
 
     <android.support.v7.widget.AppCompatTextView
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/title_tv"
-        android:layout_below="@id/title_tv"
-        android:text="欢迎关注我的Github：\nhttps://github.com/zhangyicoding" />
+        android:text="欢迎关注我的Github：\nhttps://github.com/zhangyicoding"
+        app:layout_constraintLeft_toLeftOf="@id/title_tv"
+        app:layout_constraintTop_toBottomOf="@id/title_tv" />
 
-</RelativeLayout>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/thanks_google_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Powered by Android\nDesigned by Material"
+        app:layout_constraintBottom_toTopOf="@+id/thanks_huli_tv"
+        app:layout_constraintRight_toRightOf="@+id/thanks_huli_tv" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/thanks_huli_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks for HULI Family"
+        android:textColor="#ff0000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/bottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/huli_bottom" />
+
+</android.support.constraint.ConstraintLayout>

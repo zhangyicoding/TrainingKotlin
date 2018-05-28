@@ -7,11 +7,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.utils.AnimatorUtils
 import kotlinx.android.synthetic.main.fragment_02.*
 
-class No02Fragment:BaseFragment() {
+class No02Fragment:BaseFragment(), View.OnClickListener {
+    override fun onClick(v: View?) {
+        AnimatorUtils.createAlphaDouble(mNaniImageView)
+                .start()
+    }
+
     override fun onAnimEnd(animation: Animator) {
         when ((animation as ObjectAnimator).target) {
             leftTwo1TV -> { leftTwo2TV.visibility = View.VISIBLE }
@@ -45,15 +51,13 @@ class No02Fragment:BaseFragment() {
             }
         }
 
-        leftTwo2TV.setOnClickListener {
-            AnimatorUtils.createAlphaDouble(mNaniImageView)
-                    .start()
-        }
+        leftTwo1TV.setOnClickListener(this)
+        leftTwo2TV.setOnClickListener(this)
     }
 
     override fun onTitleClick() {
-        AnimatorUtils.createTranslationTop2Bottom(leftOne1TV).apply {
-            duration = 1000
+        AnimatorUtils.createRotation10Times(leftOne1TV).apply {
+            duration = 3000
             leftOne1TV.visibility = View.VISIBLE
             start()
         }

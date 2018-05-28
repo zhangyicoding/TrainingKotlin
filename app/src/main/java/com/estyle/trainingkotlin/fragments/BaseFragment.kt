@@ -33,7 +33,6 @@ abstract class BaseFragment : Fragment(), Animator.AnimatorListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.setBackgroundResource(R.mipmap.all_bg)
         titlebar.setOnClickListener { onTitleClick() }
     }
 

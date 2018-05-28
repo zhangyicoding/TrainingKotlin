@@ -9,9 +9,6 @@
 
         <item name="android:colorPrimary" tools:targetApi="lollipop">@color/colorPrimary</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">
-            @android:color/transparent
-        </item>
     </style>
 
     <style name="one_title">
