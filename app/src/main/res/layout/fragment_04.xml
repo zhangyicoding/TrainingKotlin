@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:collapsedTitleGravity="center"
-            app:contentScrim="@color/colorAccent"
+            app:contentScrim="#df00"
             app:expandedTitleGravity="center_horizontal|bottom"
             app:expandedTitleMarginBottom="16dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -23,7 +23,7 @@
                 android:id="@+id/toEndBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@mipmap/expand_toolbar_bg">
+                android:background="@mipmap/all_bg">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"

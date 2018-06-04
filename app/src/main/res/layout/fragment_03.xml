@@ -56,7 +56,7 @@
             app:layout_constraintTop_toBottomOf="@id/rightTwo02TV"
             app:layout_constraintBottom_toTopOf="@+id/bottom"
             android:layout_height="wrap_content"
-            android:text="3、Kotlin在2018年Google的I/O大会获得了KTX框架的支持，它可牛了，狐狸Family的4个宝贝都即将使用kotlin从而少写太多低效率代码，Java你赶紧让地方"
+            android:text="3、2018年Google的I/O大会，Kotlin获得了Android官方的扩展支持。Java你还在原地踏步"
             android:visibility="invisible" />
 
     <!--</LinearLayout>-->

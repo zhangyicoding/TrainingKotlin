@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.DecelerateInterpolator
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.utils.AnimatorUtils
 import kotlinx.android.synthetic.main.fragment_02.*
@@ -21,8 +20,6 @@ class No02Fragment:BaseFragment(), View.OnClickListener {
     override fun onAnimEnd(animation: Animator) {
         when ((animation as ObjectAnimator).target) {
             leftTwo1TV -> { leftTwo2TV.visibility = View.VISIBLE }
-            else -> {
-            }
         }
     }
 

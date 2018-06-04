@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.estyle.trainingkotlin.R
-import com.estyle.trainingkotlin.R.id.*
 import com.estyle.trainingkotlin.utils.AnimatorUtils
 import kotlinx.android.synthetic.main.fragment_01.*
 
@@ -28,31 +27,25 @@ class No01Fragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bottom.post {
-                val one1Anim = AnimatorUtils.createScleAndAlpha(one1TV)
-                val two1Anim = AnimatorUtils.createTranslationLeft2Right(two1TV, activity)
-                val two2Anim = AnimatorUtils.createTranslationLeft2Right(two2TV, activity)
-                val two3Anim = AnimatorUtils.createTranslationLeft2Right(two3TV, activity)
+            val one1Anim = AnimatorUtils.createScleAndAlpha(one1TV)
+            val two1Anim = AnimatorUtils.createTranslationLeft2Right(two1TV, activity)
+            val two2Anim = AnimatorUtils.createTranslationLeft2Right(two2TV, activity)
+            val two3Anim = AnimatorUtils.createTranslationLeft2Right(two3TV, activity)
 
-                one1Anim.addListener(this)
-                two1Anim.addListener(this)
-                two2Anim.addListener(this)
-                two3Anim.addListener(this)
+            one1Anim.addListener(this)
+            two1Anim.addListener(this)
+            two2Anim.addListener(this)
+            two3Anim.addListener(this)
 
-                AnimatorSet().apply {
-                    duration = 1000
-                    playSequentially(one1Anim, two1Anim, two2Anim, two3Anim)
-                    one1TV.visibility = View.VISIBLE
-                    start()
-                }
+            AnimatorSet().apply {
+                duration = 1000
+                playSequentially(one1Anim, two1Anim, two2Anim, two3Anim)
+                one1TV.visibility = View.VISIBLE
+                start()
+            }
 
-//        one1TV.setOnClickListener {
-//            AnimatorUtils.createTranslationBottom2Top(two04TV, activity).apply {
-//                duration = 1000
-//                two04TV.visibility = View.VISIBLE
-//                start()
-//            }
-//
-//        }
+            one1TV.setOnClickListener {
+            }
         }
     }
 

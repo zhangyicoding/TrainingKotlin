@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.fragments.*
-import com.estyle.viewpager.transformer.*
+import com.estyle.viewpager.transformer.ScaleInOutTransformer
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,12 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onPostCreate(savedInstanceState)
 
         viewPager.adapter = MainPagerAdapter(supportFragmentManager)
-        viewPager.setPageTransformer(true, ZoomInTransformer())
+        viewPager.setPageTransformer(true, ScaleInOutTransformer())
     }
 
     private fun getFragmentList(): List<Fragment> {
         return ArrayList<Fragment>().apply {
             add(No01Fragment())
+            add(No1_2Fragment())
             add(No02Fragment())
             add(No03Fragment())
             add(No04Fragment())

@@ -32,8 +32,8 @@ class No04Fragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
-        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.BLACK)
+        collapsingToolbarLayout.setExpandedTitleColor(Color.BLACK)
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
 
         toEndBtn.setOnClickListener { startActivity(Intent(context, EndActivity::class.java)) }
 

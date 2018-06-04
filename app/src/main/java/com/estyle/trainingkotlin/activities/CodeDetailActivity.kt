@@ -1,7 +1,7 @@
 package com.estyle.trainingkotlin.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +21,8 @@ class CodeDetailActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         titlebar.title = intent.getStringExtra("title")
+        setSupportActionBar(titlebar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         titlebar.setNavigationOnClickListener { finish() }
 
         val codePics = intent.getIntArrayExtra("code_pics")

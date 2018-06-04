@@ -3,10 +3,10 @@ package com.estyle.trainingkotlin.utils;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
-import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
 
 public class AnimatorUtils {
 
@@ -44,6 +44,22 @@ public class AnimatorUtils {
 
     public static ObjectAnimator createRotation10Times(View target) {
         return ObjectAnimator.ofFloat(target, "rotationY", 0, 360);
+    }
+
+    public static ObjectAnimator createScale(View target, long duration, float... values) {
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", values);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", values);
+        ObjectAnimator anim = ObjectAnimator.ofPropertyValuesHolder(target, scaleX, scaleY)
+                .setDuration(duration);
+        return anim;
+    }
+
+    public static ObjectAnimator createRotationX(View target) {
+        ObjectAnimator rotationX = ObjectAnimator.ofFloat(target, "rotationX", 360, 0)
+                .setDuration(1000);
+        rotationX.setRepeatCount(1);
+        rotationX.setInterpolator(new DecelerateInterpolator());
+        return rotationX;
     }
 
     public static int[] getScreenWidthAndHeight(Activity activity) {

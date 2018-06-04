@@ -9,51 +9,51 @@
         layout="@layout/title_bar" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/one1TV"
+        android:id="@+id/oneTextView"
         style="@style/one_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="如果你恰好符合以下条件，欢迎拥抱Kotlin"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titlebar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/two1TV"
+        android:id="@+id/two1TextView"
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="一、公司Android项目中已开始使用Kotlin语言"
+        android:text="1、kotlin环境搭建"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/two2TV"
-        app:layout_constraintTop_toBottomOf="@id/one1TV" />
+        app:layout_constraintBottom_toTopOf="@+id/two2TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/oneTextView" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/two2TV"
+        android:id="@+id/two2TextView"
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="二、恰好你不会/不熟，正悲痛万分中"
+        android:text="2、基本语法——if、when、for"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/two3TV"
-        app:layout_constraintTop_toBottomOf="@id/two1TV" />
+        app:layout_constraintBottom_toTopOf="@+id/two3TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/two1TextView" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/two3TV"
+        android:id="@+id/two3TextView"
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="三、渴望提升工作效率，少加班多陪女朋友"
+        android:text="3、进阶操作——空安全、Lambda表达式"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bottom"
-        app:layout_constraintTop_toBottomOf="@id/two2TV" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/two1TextView" />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/bottom"
