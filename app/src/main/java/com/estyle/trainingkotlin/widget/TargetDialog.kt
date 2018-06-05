@@ -1,14 +1,14 @@
 package com.estyle.trainingkotlin.widget
 
 import android.animation.Animator
+import android.app.Dialog
 import android.content.Context
-import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.utils.AnimatorUtils
 
-class TargetDialog(context: Context) : AlertDialog(context) {
+class TargetDialog(context: Context) : Dialog(context) {
 
     private lateinit var mContentView: View
 
@@ -30,7 +30,7 @@ class TargetDialog(context: Context) : AlertDialog(context) {
     }
 
     private fun showOrDismiss(isShow: Boolean, vararg values: Float) {
-        val anim = AnimatorUtils.createScale(mContentView, 500, 1f)
+        val anim = AnimatorUtils.createScale(mContentView, 500, *values)
         if (!isShow) {
             anim.addListener(object : Animator.AnimatorListener {
                 override fun onAnimationRepeat(animation: Animator?) {

@@ -39,7 +39,7 @@
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，而Java则退位成为其次考虑的兼容语言"
+        android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，Java正在逐步被替换"
         android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/leftTwo1TV" />
 
