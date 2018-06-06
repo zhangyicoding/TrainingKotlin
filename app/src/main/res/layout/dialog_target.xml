@@ -3,32 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@mipmap/bomb_bg">
+    android:padding="16dp">
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/title"
-        style="@style/one_title"
+        style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="如果你有这样的迫切希望：\n走出这里，就能写出kotlin的小Demo"
+        android:gravity="center"
+        android:text="走出这里，就能写出kotlin的小Demo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn"
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape_start_btn_bg"
         android:padding="16dp"
         android:text="磨蹭啥，开始吧！"
         android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
 </android.support.constraint.ConstraintLayout>

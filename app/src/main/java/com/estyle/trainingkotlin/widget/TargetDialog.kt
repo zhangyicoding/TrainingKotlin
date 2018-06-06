@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
 import com.estyle.trainingkotlin.R
 import com.estyle.trainingkotlin.utils.AnimatorUtils
 
@@ -17,16 +18,18 @@ class TargetDialog(context: Context) : Dialog(context) {
         mContentView.findViewById<View>(R.id.btn).setOnClickListener { dismiss() }
         setContentView(mContentView)
         setCanceledOnTouchOutside(true)
+        setTitle("如果你有这样的迫切希望：")
     }
 
     override fun show() {
         super.show()
-        showOrDismiss(true, 0f, 1f)
+//        showOrDismiss(true, 0f, 1f)
 
     }
 
     override fun dismiss() {
-        showOrDismiss(false, 1f, 0f)
+        super.dismiss()
+//        showOrDismiss(false, 1f, 0f)
     }
 
     private fun showOrDismiss(isShow: Boolean, vararg values: Float) {
@@ -48,6 +51,7 @@ class TargetDialog(context: Context) : Dialog(context) {
                 }
             })
         }
+        anim.start()
     }
 
 }

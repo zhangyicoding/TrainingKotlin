@@ -57,7 +57,6 @@ public class AnimatorUtils {
     public static ObjectAnimator createRotationX(View target) {
         ObjectAnimator rotationX = ObjectAnimator.ofFloat(target, "rotationX", 360, 0)
                 .setDuration(1000);
-        rotationX.setRepeatCount(1);
         rotationX.setInterpolator(new DecelerateInterpolator());
         return rotationX;
     }

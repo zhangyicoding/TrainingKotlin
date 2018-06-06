@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="pink">#FF4081</color>
-    <color name="blue">#3F51B5</color>
+    <color name="blue">#1D5FC4</color>
 
     <color name="colorPrimary">#FF4081</color>
     <color name="colorPrimaryDark">#FF4081</color>
-    <color name="colorAccent">#3F51B5</color>
+    <!--<color name="colorAccent">#1D5FC4</color>-->
+    <color name="colorAccent">#f00</color>
 
     <color name="transparent">#00000000</color>
 </resources>
