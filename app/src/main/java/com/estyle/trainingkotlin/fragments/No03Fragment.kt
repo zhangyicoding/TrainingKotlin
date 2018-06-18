@@ -63,8 +63,9 @@ class No03Fragment : BaseFragment() {
     }
 
     private fun showTitleByEveryWord() {
-        val title = """为啥要学Kotlin开发Android——为了替换Java。
-                        |Java说它不服，接下来我们让它死得明白""".trimMargin()
+//        val title = """为啥要学Kotlin开发Android——为了替换Java。
+//                        |Java说它不服，接下来我们让它死得明白""".trimMargin()
+        val title = "为啥要学Kotlin开发Android——为了替换Java。"
 
         val sb = StringBuilder()
         rightOne01TV.visibility = View.VISIBLE

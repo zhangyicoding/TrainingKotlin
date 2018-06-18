@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/rightOne01TV"
             app:layout_constraintBottom_toTopOf="@+id/rightTwo02TV"
-            android:text="1、Java语法死板，Kotlin许多场景下接近人类的自然语言。书写比你优雅！"
+            android:text="1、Java语法死板，Kotlin许多场景下接近人类的自然语言。"
             android:visibility="invisible" />
 
         <android.support.v7.widget.AppCompatTextView
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/rightTwo01TV"
             app:layout_constraintBottom_toTopOf="@+id/rightTwo03TV"
-            android:text="2、没有知识产权纠纷，完全开源免费授权。Java你小子给Google爸爸和Oracle添的麻烦还嫌少吗！"
+            android:text="2、没有知识产权纠纷，完全开源免费授权。"
             android:visibility="invisible" />
 
         <android.support.v7.widget.AppCompatTextView
@@ -56,7 +56,7 @@
             app:layout_constraintTop_toBottomOf="@id/rightTwo02TV"
             app:layout_constraintBottom_toTopOf="@+id/bottom"
             android:layout_height="wrap_content"
-            android:text="3、2018年Google的I/O大会，Kotlin获得了Android官方的扩展支持。Java你还在原地踏步"
+            android:text="3、2018年Google的I/O大会，Kotlin获得了Android官方的扩展支持，Java还在原地踏步"
             android:visibility="invisible" />
 
     <!--</LinearLayout>-->

@@ -1,0 +1,134 @@
+1、变量、常量、函数
+2、条件操作符
+
+// 变量
+var a = 1
+var b: Boolean = false
+var c: Float = a.toFloat()// 不支持自动转型
+
+// 变量要求立即赋值，没有默认值概念。若未立即赋值，使用lateinit
+lateinit var d: Int
+d = 1
+
+
+// 常量（出于安全考虑，推荐使用常量）
+val a = 1
+
+// 常量同样要求立即赋值。若未立即赋值，使用by lazy {}表达式
+val b:String by lazy { "常量" }
+
+
+// == 和 ===
+// 对应Java的 equals() 和 ==
+    val str1 = String()
+    val str2 = String()
+    println(str1 == str2)// true
+    println(str1 === str2)// false
+
+
+// 无返回值函数
+fun welcome(name: String) {
+    print("你好，${name}先生")// 字符串模板
+}
+
+// 有返回值函数
+fun plus(a: Int, b: Int): Int {
+    return a + b
+}
+fun plus(a: Int, b: Int): Int = a + b// 函数表达式
+
+
+// if
+fun max(a: Int, b: Int): Int = if (a > b) a else b// 三目运算表达式
+
+if (a and b) {
+    // a & b
+}
+
+if (a or b) {
+    // a | b
+}
+
+if (a.not()) {
+    // !a
+}
+
+if (a in list) {// in关键字
+}
+
+if (a in 1..10) {// a在[1, 10]范围内
+}
+
+if (a in 1 until 10) {// a在[1, 10)范围内
+}
+
+if (a in 10 downto 1) {// 降序，a在[10, 1]范围内
+}
+
+fun f(obj: Any) {// Any相当于Java的Object
+    if (obj is StringBuilder) {// is关键字，判断类型
+        obj.append("hello")// 如果选择表达式中条件满足，则自动转型
+    } else {
+        (obj as StringBuffer).append("hello")// as关键字，强转
+    }
+}
+
+// when条件表达式，支持任意数据类型
+when (obj) {
+    true -> {}
+    1, 2 -> {}
+    in list -> {}
+    is String -> {}
+    getMyId() -> {}
+    null -> {}
+    else -> {}
+}
+
+
+// for
+for (i in 1..10 step 2) {// i+=2
+    // 1, 3, 5, 7, 9
+}
+
+for (name in names) {// 遍历元素
+}
+
+for (i in names.indices) {// 遍历下角标index
+}
+
+for ((i, name) in names.withIndex()) {// 遍历下角标和元素
+}
+
+for ((key, value) in map) {// 遍历Map集合
+}
+
+list.forEach {
+    print(it)// 当表达式只有一个参数时，可使用关键字"it"表示
+}
+
+
+// 数组、集合
+val array = arrayOf(1, 2, 3)
+val a = array[0]
+
+val list = listOf("a", "b", "c")
+val a = list[0]
+
+val set = setOf<Int>(1, 2, 3)
+
+var map = mapOf<String, String>("account" to "admin", "password" to "123456")
+map["password"] = "abcdef"
+
+
+// 空安全
+var a : List<String>? = null
+
+a?.size()// null
+a!!.size()// NPE
+
+
+// 类
+// 可见性
+class Animal {
+
+}

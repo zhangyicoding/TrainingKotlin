@@ -28,7 +28,7 @@
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kotlin是JetBrains公司推出的开源语言，2017年在Google的I/O大会上成为Android的官方语言，它能够实现完全替换Java和JavaScript"
+        android:text="Kotlin是JetBrains公司推出的开源语言，2017年在Google的I/O大会上成为Android的官方语言，它能够实现完全替换JavaScript（脚本语言）和Java（基于JVM的编译语言）"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/leftOne1TV"
@@ -39,7 +39,7 @@
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，Java正在逐步被替换"
+        android:text="在狐狸金服，Kotlin语言已成为狐狸慧贷App的主力开发语言，Java在Android开发小组正逐步被替换"
         android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/leftTwo1TV" />
 
