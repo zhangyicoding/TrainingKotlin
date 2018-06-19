@@ -119,16 +119,93 @@ val set = setOf<Int>(1, 2, 3)
 var map = mapOf<String, String>("account" to "admin", "password" to "123456")
 map["password"] = "abcdef"
 
+// 可变参数
+fun f(count: Int, vararg values: Int) {
+
+}
+
 
 // 空安全
-var a : List<String>? = null
+var list : List<String>? = null
 
-a?.size()// null
-a!!.size()// NPE
+list!!.size()// 断言，我们认为它不为空，万一为空则抛出NPE
+list?.size()// 空安全，返回null，不会抛出异常
+list?.size() ?: 0// ?: Elvis操作符：如果不为空，正常操作，如果为空则返回默认值
+
+
+// 面向对象
+
+// 可见性
+// public，默认，整个工程可访问
+// internal，所在module可访问
+// protected，子类可访问
+// private，仅当前类可访问
 
 
 // 类
-// 可见性
+class Animal
+
+// 主构造方法（Primary Constructor）及其方法体
+class Animal(name: String) {
+    private lateinit var name: String
+
+        init {
+            this.name = name
+        }
+}
+
+// 主构造方法传入全局参数
+class Animal(var name: String)
+
+// 主构造方法使用可见修饰符时，不能省略constructor
+class Animal private constructor()
+
+
+// 多构造方法（Secondary Constructor）
+class Animal {
+    constructor() {
+        this("旺财")
+    }
+
+    constructor(name: String) {
+    }
+}
+
+// 方法参数默认值实现方法重载
+class Animal {
+    constructor(name: String = "旺财") {
+    }
+}
+
+
+// 成员变量，默认自带getter和setter，变量可自定义getter和setter，常量只能自定义getter
+// field关键字，代表当前成员变量，注意：只能在自定义getter和setter中使用
 class Animal {
 
+    var age: Int = 0
+
+    var name: String = ""
+        get() = field
+        set(value) {
+            field = value
+        }
 }
+
+val animal = Animal()
+animal.name = "旺财"// setter
+val name = animal.name// getter
+
+
+// 继承
+// 默认等效于Java的final，使用open修饰符后，类可被继承，方法可被重写，成员变量的getter和setter可被重写
+open class Animal {
+    open fun eat() {
+    }
+}
+
+class Dog: Animal() {
+    override fun eat() {
+        super()
+    }
+}
+
