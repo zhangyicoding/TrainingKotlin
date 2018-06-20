@@ -168,7 +168,23 @@ class Animal(var name: String)
 class Animal private constructor()
 
 
-// 多构造方法（Secondary Constructor）
+// 多构造方法一：一主多从，从构造方法必须代理主构造方法
+class MyDialog() {
+    init {
+        println("initWindow")
+    }
+
+    constructor(layoutId: Int) : this() {
+        println("setContentView(${layoutId})")
+    }
+}
+val dialog = MyDialog(layout)
+打印日志如下
+initWindow
+setContentView(layout)
+
+
+// 多构造方法二：无主多从（Secondary Constructor）
 class MyDialog {
     constructor() {
         this(layout)
@@ -178,7 +194,7 @@ class MyDialog {
         println("setContentView(${layoutId})")
     }
 }
-val MyDialog()
+val dialog = MyDialog()
 打印日志如下
 setContentView(layout)
 
@@ -188,7 +204,7 @@ class MyDialog {
         println("setContentView(${layoutId})")
     }
 }
-val MyDialog()
+val dialog = MyDialog()
 打印日志如下
 setContentView(layout)
 
@@ -235,8 +251,32 @@ class MyView : View {
 data class Animal(var name: String? = null, var age: Int = 0)
 
 
-// abstract关键字与Java无异
+// 伴生对象companion object，内部的属性/方法相当于在Java中用static修饰
+class MyFragment: Fragment() {
+    companion object {
+        const val TAG = "MyFragment"// const关键字，只能在伴生对象中使用，相当于Java的public static final String TAG
 
+        fun newInstance(): MyFragment = MyFragment()
+    }
+}
+val tag = MyFragment.TAG
+val fragment = MyFragment.newInstance()
+
+
+// 伴生对象object
+object User {
+    fun login() {
+    }
+}
+User.login()
+
+// 伴生对象kt在java的调用：【伴】随类诞【生】的【对象】，且仅有一个，即单例
+MyFragment fragment = MyFragment.Companion.newInstance();
+User.INSTANCE.login();
+
+
+
+// abstract关键字与Java无异
 
 // 实现Interface接口。
 class MyActivity : Activity(), OnClickListener, OnClickListener {
@@ -258,7 +298,7 @@ class Outer {
 }
 
 
-// 匿名内部类
+// 匿名内部类（对象表达式）
 Button(context).setOnClickListener(object : View.OnClickListener {
     override fun onClick(v: View) {
         println(v.id)
@@ -280,5 +320,11 @@ thread { // TODO }
 
 class ImageLoader(context: Context, callback: (String, ImageView) -> Unit)
 
-// ImageLoader(context, { path, v -> Glide.with(v).load(path).into(v) })
-ImageLoader(context) { path, v -> Glide.with(v).load(path).into(v) }
+// ImageLoader(context, { path, v -> Glide.with(v).load(path).into(v) })// Lambda表达式
+ImageLoader(context) { path, v -> Glide.with(v).load(path).into(v) }// 闭包表达式
+
+
+// 反射
+MainActivity::class// Kotlin的KClass类型
+MainActivity::class.java// Java的Class类型
+context.startActivity(Intent(context, MainActivity::class.java))// Intent(Context, Class)
