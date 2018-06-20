@@ -8,6 +8,23 @@
         android:id="@+id/titlebar"
         layout="@layout/title_bar" />
 
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlebar"
+        app:srcCompat="@mipmap/huli_logo" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlebar"
+        app:srcCompat="@mipmap/android_developer" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/oneTextView"
         style="@style/one_title"
@@ -20,11 +37,24 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/two0TextView"
+        style="@style/two_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预备、环境配置"
+        android:textColor="#f00"
+        app:layout_constraintBottom_toTopOf="@+id/two1TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/oneTextView" />
+
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/two1TextView"
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1、kotlin环境搭建"
+        android:text="1、基本语法"
+        android:textColor="#f00"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/two2TextView"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -36,7 +66,8 @@
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2、基础语法"
+        android:text="2、面向对象"
+        android:textColor="#f00"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/two3TextView"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -48,7 +79,7 @@
         style="@style/two_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3、面向对象"
+        android:text="3、函数式编程及Android开发"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintLeft_toLeftOf="parent"

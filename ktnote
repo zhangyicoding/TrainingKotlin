@@ -321,7 +321,7 @@ thread { // TODO }
 class ImageLoader(context: Context, callback: (String, ImageView) -> Unit)
 
 // ImageLoader(context, { path, v -> Glide.with(v).load(path).into(v) })// Lambda表达式
-ImageLoader(context) { path, v -> Glide.with(v).load(path).into(v) }// 闭包表达式
+ImageLoader(context) { path, v -> Glide.with(v).load(path).into(v) }// 闭包表达式，推荐写法
 
 
 // 反射
