@@ -1,30 +1,44 @@
-1、变量、常量、函数
-2、条件操作符
+基础语法
+1、变量var、常量val
+2、函数fun
+3、if
+4、when
+5、for
+6、数组Array、集合List、Set、Map
+7、空安全
+8、==、===比较
+
+面向对象
+1、可见性修饰符：public、internal、protected、private
+2、类class、主构造方法Primary Constructor
+3、从构造方法Secondary Constructor、方法重载
+4、方法参数默认值、方法重载
+5、getter、setter
+6、继承
+7、接口
+8、数据模型类data class
+9、伴生对象 companion object、单例object
+10、内部类inner class、静态内部类
+11、匿名内部类object : Interface {}
+12、lambda表达式{ (参数) -> // TODO }
+13、闭包表达式with、let、run、apply
+14、反射::class、::class.java
 
 // 变量
-var a = 1
-var b: Boolean = false
-var c: Float = a.toFloat()// 不支持自动转型
+var a = 1// 自动类型推断
+var b: Float = a.toFloat()// 不支持自动转型
 var sb = StringBuilder()
 
 // 变量要求立即赋值，没有默认值概念。若未立即赋值，使用lateinit
-lateinit var d: Int
-d = 1
+lateinit var c: Int
+c = 1
 
 
 // 常量（出于安全考虑，推荐使用常量）
 val a = 1
 
 // 常量同样要求立即赋值。若未立即赋值，使用by lazy {}表达式
-val b:String by lazy { "常量" }
-
-
-// == 和 ===
-// 对应Java的 equals() 和 ==
-    val str1 = String()
-    val str2 = String()
-    println(str1 == str2)// true
-    println(str1 === str2)// false
+val b: String by lazy { "常量" }
 
 
 // 无返回值函数
@@ -36,11 +50,11 @@ fun welcome(name: String) {
 fun plus(a: Int, b: Int): Int {
     return a + b
 }
-fun plus(a: Int, b: Int): Int = a + b// 函数表达式
+fun plus(a: Int, b: Int) = a + b// 返回值类型自动推断
 
 
 // if
-fun max(a: Int, b: Int): Int = if (a > b) a else b// 三目运算表达式
+fun max(a: Int, b: Int) = if (a > b) a else b// 三目运算表达式
 
 if (a and b) {
     // a & b
@@ -61,13 +75,10 @@ if (a in 1..10) {
     // a在[1, 10]范围内
 }
 
-if (a in 1 until 10) {
-    // a在[1, 10)范围内
+if (b in 1 until 10) {
+    // b在[1, 10)范围内
 }
 
-if (a in 10 downto 1) {
-    // 降序，a在[10, 1]范围内
-}
 
 fun f(obj: Any) {// Any相当于Java的Object
     if (obj is StringBuilder) {// is关键字，判断类型
@@ -79,11 +90,10 @@ fun f(obj: Any) {// Any相当于Java的Object
 
 // when条件表达式，支持任意数据类型
 when (obj) {
-    true -> {}
-    1, 2 -> {}
+    "hello" -> {}
+    1, square(2) -> {}
     in list -> {}
-    is String -> {}
-    getMyId() -> {}
+    is StringBuilder -> {}
     null -> {}
     else -> {}
 }
@@ -92,6 +102,10 @@ when (obj) {
 // for
 for (i in 1..10 step 2) {// i+=2
     // 1, 3, 5, 7, 9
+}
+
+for (i in 10 downto 1 step 2) {// i-=2
+    // 10, 8, 6, 4, 2
 }
 
 for (name in names) {// 遍历元素
@@ -106,6 +120,12 @@ for ((i, name) in names.withIndex()) {// 遍历下角标和元素
 for ((key, value) in map) {// 遍历Map集合
 }
 
+for (key in map.keys) {// 遍历key
+}
+
+for (value in map.values) {// 遍历value
+}
+
 list.forEach {
     print(it)// 当表达式只有一个参数时，可使用关键字"it"表示
 }
@@ -114,21 +134,22 @@ list.forEach {
 // while、do/while循环与Java无异
 
 
-// 数组、集合
-val array = arrayOf(1, 2, 3)
+
+// 数组Array、集合List、Set、Map
+val array = arrayOf(1, 2, 3)// 类型自动推断
 val a = array[0]
 
-val list = listOf("a", "b", "c")
-val a = list[0]
+val list = arrayListOf("a", "b", "c")// 类型自动推断
+val b = list[0]
 
-val set = setOf<Int>(1, 2, 3)
+val set = hashSetOf<Int>(1, 2, 3)
 
-var map = mapOf<String, String>("account" to "admin", "password" to "123456")
+var map = hashMapOf<String, String>("account" to "admin", "password" to "123456")
 map["password"] = "abcdef"
 
-// 可变参数
+// 可变参数vararg
 fun f(count: Int, vararg values: Float) {
-    ObjectAnimator.ofFloat(Button(this), "alpha", *values)
+    ObjectAnimator.ofFloat(Button(context), "alpha", *values)
 }
 
 
@@ -136,16 +157,22 @@ fun f(count: Int, vararg values: Float) {
 var list : List<String>? = null
 
 list!!.size()// 断言，我们认为它不为空，万一为空则抛出NPE
-list?.size()// 空安全，返回null，不会抛出异常
-list?.size() ?: 0// ?: Elvis操作符：如果不为空，正常操作，如果为空则返回默认值
+list?.size()// 空安全调用，返回null，不会抛出异常
+list?.size() ?: 0// "?:" Elvis操作符：如果不为空，正常操作size()，如果为空则返回默认值0
 
 
-// 面向对象
+// == 和 ===
+// 对应Java的 equals() 和 ==
+    val str1 = String()
+    val str2 = String()
+    println(str1 == str2)// true
+    println(str1 === str2)// false
 
-// 可见性
+
+// 可见性修饰符
 // public，默认，整个工程可访问
 // internal，所在module可访问
-// protected，子类可访问
+// protected，当前类及其子类可访问
 // private，仅当前类可访问
 
 
@@ -164,7 +191,7 @@ class Animal(name: String) {
 // 主构造方法传入全局参数
 class Animal(var name: String)
 
-// 主构造方法使用修饰符时，不能省略constructor
+// 主构造方法使用任何修饰符时，都不能省略constructor
 class Animal private constructor()
 
 
@@ -178,16 +205,16 @@ class MyDialog() {
         println("setContentView(${layoutId})")
     }
 }
-val dialog = MyDialog(layout)
+val dialog = MyDialog(0)
 打印日志如下
 initWindow
-setContentView(layout)
+setContentView(0)
 
 
 // 多构造方法二：无主多从（Secondary Constructor）
 class MyDialog {
     constructor() {
-        this(layout)
+        this(0)
     }
 
     constructor(layoutId: Int) {
@@ -196,17 +223,17 @@ class MyDialog {
 }
 val dialog = MyDialog()
 打印日志如下
-setContentView(layout)
+setContentView(0)
 
 // 方法参数默认值实现方法重载的效果
 class MyDialog {
-    constructor(layoutId: Int = layout) {
+    constructor(layoutId: Int = 0) {
         println("setContentView(${layoutId})")
     }
 }
 val dialog = MyDialog()
 打印日志如下
-setContentView(layout)
+setContentView(0)
 
 
 // 成员变量，默认自带getter和setter，变量可自定义getter和setter，常量只能自定义getter
@@ -230,18 +257,31 @@ val name = animal.name// getter
 // 继承一：重写一个父类构造方法
 // 默认等效于Java的final，使用open修饰符后，类可被继承，方法可被重写，成员变量的getter和setter可被重写
 open class ViewHolder(itemView: View) {
-     open fun bind()
+     open fun bind() {
+     }
  }
 
 class MyViewHolder(itemView : View): ViewHolder(itemView) {
 
-    override fun bind()
+    override fun bind() {
+    }
 }
 
 // 继承二：重写多个父类构造方法
 class MyView : View {
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+}
+
+
+// abstract关键字与Java无异
+
+// 实现Interface接口。
+class MyActivity : Activity(), OnClickListener, OnClickListener {
+    override fun onClick(v: View) {
+    }
+    override fun onLongClick(v: View) {
+    }
 }
 
 
@@ -250,20 +290,24 @@ class MyView : View {
 // 2、自动重写equals()、hashCode()、toString()三个方法
 data class Animal(var name: String? = null, var age: Int = 0)
 
+// 使用举例
+val cat = Animal()
+val dog = Animal("旺财", 1)
+
 
 // 伴生对象companion object，内部的属性/方法相当于在Java中用static修饰
 class MyFragment: Fragment() {
     companion object {
-        const val TAG = "MyFragment"// const关键字，只能在伴生对象中使用，相当于Java的public static final String TAG
+        const val TAG = "MyFragment"// const关键字，只能在伴生对象中修饰val，相当于Java的public static final String TAG
 
-        fun newInstance(): MyFragment = MyFragment()
+        fun newInstance() = MyFragment()
     }
 }
 val tag = MyFragment.TAG
 val fragment = MyFragment.newInstance()
 
 
-// 伴生对象object
+// 伴生对象object（单例）
 object User {
     fun login() {
     }
@@ -276,17 +320,6 @@ User.INSTANCE.login();
 
 
 
-// abstract关键字与Java无异
-
-// 实现Interface接口。
-class MyActivity : Activity(), OnClickListener, OnClickListener {
-    override fun onClick(v: View?) {
-    }
-    override fun onLongClick(v: View?) {
-    }
-}
-
-
 // 内部类
 class Outer {
     inner class Inner// inner关键字，内部类持有外部类的引用
@@ -294,7 +327,7 @@ class Outer {
 
 // 静态内部类
 class Outer {
-    class Inner// 内部类不会持有外部类的引用，相当于Java的static class Inner {}
+    class Inner// 内部类不会持有外部类的引用，相当于Java的public static class Inner {}
 }
 
 
@@ -317,14 +350,48 @@ Button(context).setOnClickListener { println(it.id) }
 
 thread { // TODO }
 
-
-class ImageLoader(context: Context, callback: (String, ImageView) -> Unit)
+// 声明Lambda表达式
+class ImageLoader(context: Context, onSuccess: (String, ImageView) -> Unit)
 
 // ImageLoader(context, { path, v -> Glide.with(v).load(path).into(v) })// Lambda表达式
 ImageLoader(context) { path, v -> Glide.with(v).load(path).into(v) }// 闭包表达式，推荐写法
+// 常用闭包表达式有with、run、let和apply
+
+// with：用this（可省略）代表被操作对象，返回最后一次操作的值
+var list = arrayListOf(1, 2, 3)
+val a = with(list) {
+    this.add(4)
+    add(5)
+}
+println(a)// true
+
+// run：用this（可省略）代表被操作对象，返回最后一次操作的值
+var list = arrayListOf(1, 2, 3)
+val b = list.run {
+    this.add(4)
+    add(5)
+}
+println(b)// true
+
+
+// let：用it代表被操作对象，返回最后一次操作的值
+var list = arrayListOf(1, 2, 3)
+val c = list.let {
+    it.add(4)
+    it.add(5)
+}
+println(c)// true
+
+// apply：用this（可省略）代表被操作对象，返回this
+var list = arrayListOf(1, 2, 3)
+val d = list.apply {
+    this.add(4)
+    add(5)
+}
+println(d)// [1, 2, 3, 4, 5]
 
 
 // 反射
 MainActivity::class// Kotlin的KClass类型
 MainActivity::class.java// Java的Class类型
-context.startActivity(Intent(context, MainActivity::class.java))// Intent(Context, Class)
+Intent(context, MainActivity::class.java)// Intent(Context, Class)
